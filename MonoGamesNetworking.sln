@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGamesNetworkingGame", "MonoGamesNetworkingGame\MonoGamesNetworkingGame.csproj", "{225E1611-2E76-4921-8656-A760285B66BE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{17771CC9-285D-40FD-9E8F-F34D1F56C182} = {17771CC9-285D-40FD-9E8F-F34D1F56C182}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGamesNetworkingServer", "MonoGamesNetworkingServer\MonoGamesNetworkingServer.csproj", "{7A8FB807-08C5-4E57-8503-1CEA8DC11848}"
+	ProjectSection(ProjectDependencies) = postProject
+		{17771CC9-285D-40FD-9E8F-F34D1F56C182} = {17771CC9-285D-40FD-9E8F-F34D1F56C182}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGamesNetworkingLibrary", "MonoGamesNetworkingLibrary\MonoGamesNetworkingLibrary.csproj", "{17771CC9-285D-40FD-9E8F-F34D1F56C182}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{225E1611-2E76-4921-8656-A760285B66BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{225E1611-2E76-4921-8656-A760285B66BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{225E1611-2E76-4921-8656-A760285B66BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{225E1611-2E76-4921-8656-A760285B66BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A8FB807-08C5-4E57-8503-1CEA8DC11848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A8FB807-08C5-4E57-8503-1CEA8DC11848}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A8FB807-08C5-4E57-8503-1CEA8DC11848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A8FB807-08C5-4E57-8503-1CEA8DC11848}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17771CC9-285D-40FD-9E8F-F34D1F56C182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17771CC9-285D-40FD-9E8F-F34D1F56C182}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17771CC9-285D-40FD-9E8F-F34D1F56C182}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17771CC9-285D-40FD-9E8F-F34D1F56C182}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1563542-EF47-43B4-AF2E-D9F97D1FBD21}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,7 @@
+C:\Users\owner\Documents\Visual Studio 2017\Projects\MonoGamesNetworking\MonoGamesNetworkingLibrary\bin\Debug\MonoGamesNetworkingLibrary.dll
+C:\Users\owner\Documents\Visual Studio 2017\Projects\MonoGamesNetworking\MonoGamesNetworkingLibrary\bin\Debug\MonoGamesNetworkingLibrary.pdb
+C:\Users\owner\Documents\Visual Studio 2017\Projects\MonoGamesNetworking\MonoGamesNetworkingLibrary\obj\Debug\MonoGamesNetworkingLibrary.csproj.CoreCompileInputs.cache
+C:\Users\owner\Documents\Visual Studio 2017\Projects\MonoGamesNetworking\MonoGamesNetworkingLibrary\obj\Debug\MonoGamesNetworkingLibrary.dll
+C:\Users\owner\Documents\Visual Studio 2017\Projects\MonoGamesNetworking\MonoGamesNetworkingLibrary\obj\Debug\MonoGamesNetworkingLibrary.pdb
+C:\Users\owner\Documents\Visual Studio 2017\Projects\MonoGamesNetworking\MonoGamesNetworkingLibrary\bin\Debug\Lidgren.Network.dll
+C:\Users\owner\Documents\Visual Studio 2017\Projects\MonoGamesNetworking\MonoGamesNetworkingLibrary\bin\Debug\Lidgren.Network.xml
