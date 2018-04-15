@@ -1,6 +1,8 @@
 ﻿using Lidgren.Network;
 using MonoGamesNetworkingLibrary.InfoLibraries;
 using MonoGamesNetworkingLibrary.NetworkLibraries;
+using MonoGamesNetworkingLibrary.Packets;
+using MonoGamesNetworkingLibrary.Packets.Server;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +37,7 @@ namespace MonoGamesNetworking.Networking
             client = new NetClient(new NetPeerConfiguration("networkGame")); //Has to be the same on all clients.
             client.Start();
             var outMessage = client.CreateMessage();
-            PacketTypes.writeToMessage(outMessage, PacketType.Login);
+            this.writePackageInfo(outMessage, ServerPacketTypes.Login_ConnectionApprove); //writes to the server that we want to connect.
             this.player.writeLoginInfo(outMessage); //
             outMessage.Write(player.Name); //Writes the player's name to a packet to be read by the NetIncomingMessage. If I don't write it here it can't be read later.
             var connect = client.Connect("localhost", 4207,outMessage); //Options? (localhost/IP);
@@ -141,7 +143,8 @@ namespace MonoGamesNetworking.Networking
                         ReceiveAllPlayers(inc);
                         break;
                     default:
-                        throw new Exception("Argument out of range: Not enough variety in packet types: Failed packet type is:" + packetType);
+                        break;
+                        //throw new Exception("Argument out of range: Not enough variety in packet types: Failed packet type is:" + packetType);
                 }
             }
         }
@@ -172,6 +175,30 @@ namespace MonoGamesNetworking.Networking
                 }
             }
 
+        }
+
+
+        /// <summary>
+        /// Writes a packet to the server to figure out what to do.
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="serverPacket"></param>
+        private void writePackageInfo(NetOutgoingMessage msg,ServerPacketTypes serverPacket)
+        {
+            PacketInfo packet = new PacketInfo(SenderPackets.Client, ClientPacketTypes.None_None, serverPacket);
+            packet.writeToMessage(msg);
+            Console.WriteLine(packet.ToString());
+
+        }
+
+        /// <summary>
+        /// Reads the packet info from a message.
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        private PacketInfo readPacketInfo(NetIncomingMessage msg)
+        {
+            return PacketInfo.readFromMessage(msg);
         }
     }
 }

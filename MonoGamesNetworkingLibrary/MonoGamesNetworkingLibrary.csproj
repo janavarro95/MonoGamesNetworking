@@ -45,7 +45,22 @@
     <Compile Include="Class1.cs" />
     <Compile Include="InfoLibraries\Player.cs" />
     <Compile Include="NetworkLibraries\PacketType.cs" />
+    <Compile Include="Packets\Client\ClientAllPlayersPacket.cs" />
+    <Compile Include="Packets\Client\ClientBasePacket.cs" />
+    <Compile Include="Packets\Client\ClientLoginPacket.cs" />
+    <Compile Include="Packets\Client\ClientNonePacket.cs" />
+    <Compile Include="Packets\Client\ClientPacketTypes.cs" />
+    <Compile Include="Packets\Client\ClientRequestPacket.cs" />
+    <Compile Include="Packets\PacketInfo.cs" />
+    <Compile Include="Packets\Packet.cs" />
+    <Compile Include="Packets\SenderPackets.cs" />
+    <Compile Include="Packets\Server\ServerLoginType.cs" />
+    <Compile Include="Packets\Server\ServerNonePacket.cs" />
+    <Compile Include="Packets\Server\ServerPacketBase.cs" />
+    <Compile Include="Packets\Server\ServerPacketTypes.cs" />
+    <Compile Include="Packets\Server\ServerRecievePacket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

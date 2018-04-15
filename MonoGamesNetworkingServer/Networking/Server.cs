@@ -1,6 +1,8 @@
 ﻿using Lidgren.Network;
 using MonoGamesNetworkingLibrary.InfoLibraries;
 using MonoGamesNetworkingLibrary.NetworkLibraries;
+using MonoGamesNetworkingLibrary.Packets;
+using MonoGamesNetworkingLibrary.Packets.Server;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,13 @@ using System.Threading.Tasks;
 
 namespace MonoGamesNetworkingLibrary.Server
 {
+    /*
+     * TODO: Port all packet type code to new Packet protocall I made.
+     * Make players move
+     * 
+     */ 
+
+
     /// <summary>
     /// Create a new server for clients to connect to.
     /// </summary>
@@ -113,6 +122,11 @@ namespace MonoGamesNetworkingLibrary.Server
 
         }
 
+        /// <summary>
+        /// Send a new player to the clients.
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="inc"></param>
         public static void SendNewPlayer(Player player, NetIncomingMessage inc)
         {
 
@@ -124,7 +138,10 @@ namespace MonoGamesNetworkingLibrary.Server
 
 
 
-
+        /// <summary>
+        /// Send all of the player info to the clients.
+        /// </summary>
+        /// <param name="inc"></param>
         public static void SendFullPlayerList(NetIncomingMessage inc)
         {
             Console.WriteLine("Sending out full server to all!.");
@@ -146,8 +163,10 @@ namespace MonoGamesNetworkingLibrary.Server
         {
 
             Console.WriteLine("New Connection...");
-            var data = inc.ReadByte();
-            if (data == (byte)PacketType.Login)
+            var packet=PacketInfo.readFromMessage(inc);
+            Console.WriteLine(packet.ToString());
+            Console.WriteLine(packet.getPacketType());
+            if (packet.getPacketType() == Packets.ClientPacketTypes.Type_Login)
             {
                 Console.WriteLine("Connection Approved");
 
@@ -179,6 +198,27 @@ namespace MonoGamesNetworkingLibrary.Server
             {
                 inc.SenderConnection.Deny("Didn't send the right data...");
             }
+        }
+
+        /// <summary>
+        /// Writes a packet to the server to figure out what to do.
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="serverPacket"></param>
+        private void writePackageInfo(NetOutgoingMessage msg, ClientPacketTypes clientPacket)
+        {
+            var packet = new PacketInfo(SenderPackets.Server, clientPacket, ServerPacketTypes.None_None);
+            msg.WriteAllProperties(packet);
+        }
+
+        /// <summary>
+        /// Reads the packet info from a message.
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        private PacketInfo readPacketInfo(NetIncomingMessage msg)
+        {
+            return PacketInfo.readFromMessage(msg);
         }
 
     }
